@@ -7,24 +7,22 @@ quebra_linha: .asciiz "\n"
 main:
 	li $v0, 5
 	syscall
-	
+		
 	move $t0, $v0
 	
-	slti $t1, $t0, 11
-	beq $t1, 1, caso1
+	slt $t1, $t0, $zero
+	beq $t1, 1, termina
+	bge $t0, 1001, termina
 	
-	slti $t1, $t0, 31
-	slti $t2, $t0, 11
-	or $t3, $t1, $t2
-	beq $t3, 1, caso2
-
-	slti $t1, $t0, 101
-	slti $t2, $t0, 31
-	or $t3, $t1, $t2
-	beq $t3, 1, caso3
+	bge $t0, 101, caso4
+	bge $t0, 31, caso3
+	bge $t0, 11, caso2
 	
-	bge $t0, 101, caso4	
-	 
+	j caso1
+	
+	li $v0, 10
+	syscall
+		
 caso1:
 	li $v0, 1
 	la $a0, 7
@@ -47,7 +45,7 @@ caso2:
 	li $v0, 4
 	la $a0, quebra_linha
 	syscall
-	
+		
 	j termina
 	
 caso3:
