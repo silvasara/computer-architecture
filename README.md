@@ -1,3 +1,3 @@
-# Fundamentos de Arquitetura de Computadores
+# Fundamentals of Computer Architecture
 
-Repositório para prática, em Assembly, da disciplina de Fundamentos de Arquitetura de Computadores
+Repository for practice, in Assembly, of the discipline of Fundamentals of Computer Architecture
